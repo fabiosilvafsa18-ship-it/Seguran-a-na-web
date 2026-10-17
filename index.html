@@ -898,7 +898,55 @@
         ];
         let qi = 0, chosen = null, score = 0;
         function renderQuestion() { chosen = null; $("quizResult").hidden = true; $("nextQuestion").disabled = true; $("nextQuestion").textContent = qi === questions.length - 1 ? "Ver resultado" : "Próxima pergunta"; $("quizMeta").textContent = `Pergunta ${qi + 1} de ${questions.length}`; $("quizQuestion").textContent = questions[qi].q; $("quizAnswers").innerHTML = ""; questions[qi].a.forEach((answer, i) => { const b = document.createElement("button"); b.className = "answer"; b.textContent = answer; b.addEventListener("click", () => { if (chosen !== null) return; chosen = i; document.querySelectorAll(".answer").forEach(x => x.disabled = true); b.classList.add("selected"); if (i === questions[qi].correct) score++; $("quizResult").hidden = false; $("quizResult").innerHTML = `<strong>${i === questions[qi].correct ? "Isso aí!" : "Quase!"}</strong><span class="hint">${questions[qi].why}</span>`; $("nextQuestion").disabled = false }); $("quizAnswers").appendChild(b) }); $("restartQuiz").hidden = true }
-        $("nextQuestion").addEventListener("click", () => { if (chosen === null) return; if (qi < questions.length - 1) { qi++; renderQuestion() } else { $("quizMeta").textContent = "Quiz concluído"; $("quizQuestion").textContent = `Você acertou ${score} de ${questions.length} perguntas.`; $("quizAnswers").innerHTML = "<p class='hint'>Continue praticando: pare, confira e só então clique ou pague.</p>"; $("quizResult").hidden = true; $("nextQuestion").hidden = true; $("restartQuiz").hidden = false } });
+       $("nextQuestion").addEventListener("click", async () => {
+  if (chosen === null) return;
+
+  if (qi < questions.length - 1) {
+    qi++;
+    renderQuestion();
+  } else {
+    $("nextQuestion").disabled = true;
+    $("quizMeta").textContent = "Quiz concluído";
+    $("quizQuestion").textContent =
+      `Você acertou ${score} de ${questions.length} perguntas.`;
+
+    $("quizAnswers").innerHTML =
+      "<p class='hint'>Continue praticando: pare, confira e só então clique ou pague.</p>";
+
+    $("quizResult").hidden = false;
+    $("quizResult").textContent = "Salvando resultado...";
+
+    try {
+      const resposta = await fetch(
+        API_URL + "/api/resultados",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            pontuacao: score,
+            total_perguntas: questions.length
+          })
+        }
+      );
+
+      const dados = await resposta.json();
+
+      if (!resposta.ok) {
+        throw new Error(dados.erro || "Falha ao salvar");
+      }
+
+      $("quizResult").textContent =
+        "Resultado salvo com sucesso no banco de dados!";
+    } catch (erro) {
+      $("quizResult").textContent =
+        "Não foi possível salvar o resultado. Confira a conexão e tente novamente.";
+      console.error(erro);
+    }
+
+    $("nextQuestion").hidden = true;
+    $("restartQuiz").hidden = false;
+  }
+});
         $("restartQuiz").addEventListener("click", () => { qi = 0; score = 0; $("nextQuestion").hidden = false; renderQuestion() }); renderQuestion();
         $("feedbackForm").addEventListener("submit", e => { e.preventDefault(); $("feedbackForm").hidden = true; $("feedbackDone").hidden = false });
     </script>
