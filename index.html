@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="Aprenda a usar a tecnologia com mais segurança: senhas, mensagens suspeitas, golpes comuns e boas práticas digitais.">
+<title>Uso Seguro da Tecnologia</title>
+<style>
+:root{--bg:#0b1020;--panel:#111a2f;--panel2:#17233d;--text:#edf3ff;--muted:#a8b6d4;--line:#293957;--cyan:#69e0d0;--blue:#8cb8ff;--yellow:#ffd479;--red:#ff8b9b;--green:#8ee3ad;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#17284a 0,transparent 40%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--cyan)}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{position:sticky;top:0;z-index:5;background:#0b1020eF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}.brand{font-weight:850;letter-spacing:-.04em;display:flex;gap:10px;align-items:center;color:var(--text);text-decoration:none}.brand-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#091321;font-size:21px}
+nav{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}nav a{text-decoration:none;color:var(--muted);font-size:.88rem}nav a:hover{color:var(--cyan)}
+.hero{padding:78px 0 50px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}.eyebrow{color:var(--cyan);font-weight:750;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem}.hero h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.02;letter-spacing:-.065em;margin:16px 0}.hero p{color:var(--muted);max-width:650px;font-size:1.08rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{border:0;border-radius:12px;padding:12px 17px;background:var(--cyan);color:#091321;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.hero-card{background:linear-gradient(145deg,#172b49,#111a2f);border:1px solid #304565;border-radius:28px;padding:25px;box-shadow:0 25px 70px #0004}.shield{width:78px;height:78px;border-radius:24px;display:grid;place-items:center;background:#69e0d01c;color:var(--cyan);font-size:42px;margin-bottom:20px}.hero-card h2{margin:0 0 8px;font-size:1.35rem}.hero-card p{font-size:.95rem}.mini-stat{display:flex;gap:10px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--muted)}.mini-stat b{color:var(--text)}
+section{padding:42px 0;scroll-margin-top:86px}.section-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px}.num{flex:0 0 44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#69e0d018;border:1px solid #69e0d044;color:var(--cyan);font-weight:850}.section-head h2{margin:0;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.035em}.section-head p{margin:5px 0 0;color:var(--muted);max-width:740px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:linear-gradient(160deg,var(--panel),#0f172a);border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-width:0}.card h3{margin:0 0 8px;font-size:1.15rem}.card p{color:var(--muted);margin:8px 0}.field{display:grid;gap:7px;margin:14px 0}.field label{font-weight:700;font-size:.93rem}.field input,.field textarea,.field select{width:100%;border:1px solid #3a4b6b;background:#0b1325;color:var(--text);border-radius:12px;padding:12px 13px;font:inherit;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #69e0d01b}.field textarea{min-height:125px;resize:vertical}.hint{font-size:.85rem;color:var(--muted)}.checkline{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:.9rem;margin:12px 0}.checkline input{margin-top:5px;accent-color:var(--cyan)}
+.result{border:1px solid var(--line);border-radius:14px;padding:15px;margin-top:15px;background:#0a1222}.result strong{display:block;font-size:1.05rem;margin-bottom:4px}.meter{height:9px;background:#25334d;border-radius:99px;overflow:hidden;margin:10px 0}.meter span{display:block;height:100%;width:0;background:var(--cyan);transition:width .25s}.criteria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:12px}.criterion{font-size:.86rem;color:var(--muted)}.criterion.ok{color:var(--green)}.criterion:before{content:"○ ";}.criterion.ok:before{content:"✓ "}
+.pill{display:inline-block;border:1px solid var(--line);background:#1a2942;color:var(--muted);padding:4px 9px;border-radius:99px;font-size:.78rem;margin:3px 4px 3px 0}.scam-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.scam{background:var(--panel);border:1px solid var(--line);padding:19px;border-radius:18px}.scam .emoji{font-size:1.8rem}.scam h3{margin:8px 0}.scam p{font-size:.93rem;color:var(--muted);margin:0}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.step{padding:18px;border:1px solid var(--line);border-radius:16px;background:#111a2f}.step b{display:block;margin-bottom:5px}.step p{color:var(--muted);font-size:.92rem;margin:0}
+.quiz-question{font-weight:800;font-size:1.1rem;margin:10px 0 14px}.answers{display:grid;gap:9px}.answer{display:block;text-align:left;width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#0b1325;color:var(--text);cursor:pointer;font:inherit}.answer:hover{border-color:var(--cyan)}.answer.selected{border-color:var(--cyan);background:#69e0d018}.quiz-meta{color:var(--muted);font-size:.9rem}.feedback-note{color:var(--muted);font-size:.9rem}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:32px 0 42px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}.credit{color:var(--text);font-weight:800}.small{font-size:.84rem}.notice{padding:14px 16px;border:1px solid #ffd47944;background:#ffd4790d;color:#e9d9b7;border-radius:14px;margin:15px 0}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-card{max-width:520px}.grid{grid-template-columns:1fr}.scam-grid,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}nav{gap:10px}nav a{font-size:.8rem}}
+@media(max-width:520px){.wrap{width:min(100% - 22px,1120px)}.nav{align-items:flex-start;flex-direction:column}.hero{padding-top:35px}.scam-grid,.steps{grid-template-columns:1fr}.card{padding:17px}.criteria{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#inicio"><span class="brand-icon">✓</span><span>Uso Seguro<br><span style="font-size:.75rem;color:var(--muted);font-weight:600">da Tecnologia</span></span></a>
+<nav aria-label="Navegação principal"><a href="#senhas">Senhas</a><a href="#mensagens">Mensagens suspeitas</a><a href="#golpes">Golpes comuns</a><a href="#boas-praticas">Boas práticas</a><a href="#quiz">Quiz</a><a href="#feedback">Feedback</a></nav>
+</div></header>
+<main class="wrap" id="inicio">
+<div class="hero">
+<div><div class="eyebrow">Projeto de extensão · Educação digital</div><h1>Você está seguro na internet?</h1><p>Aprenda a reconhecer golpes, proteger suas senhas e navegar com mais confiança. Ferramentas simples, linguagem direta e dicas para o dia a dia — sem precisar entender de tecnologia.</p><div class="hero-actions"><a class="btn" href="#senhas">Começar agora <span aria-hidden="true">→</span></a><a class="btn secondary" href="#golpes">Conhecer os golpes</a></div></div>
+<aside class="hero-card"><div class="shield">✓</div><h2>Segurança digital começa com informação.</h2><p>Antes de clicar, pagar ou compartilhar dados, pare por alguns segundos e confira os sinais.</p><div class="mini-stat"><span>01</span><b>Proteja suas contas</b></div><div class="mini-stat"><span>02</span><b>Confira links e mensagens</b></div><div class="mini-stat"><span>03</span><b>Peça ajuda quando desconfiar</b></div></aside>
+</div>
+<div class="notice"><strong>Importante:</strong> as ferramentas desta página fazem uma avaliação educativa no seu navegador. Elas não substituem a análise de um especialista e não conseguem garantir que uma mensagem ou senha seja totalmente segura.</div>
+
+<section id="senhas"><div class="section-head"><div class="num">01</div><div><h2>Verificador de força de senha</h2><p>Veja se sua senha atende a critérios importantes. Por segurança, use uma senha fictícia neste teste — nunca compartilhe sua senha real.</p></div></div>
+<div class="grid"><div class="card"><h3>Teste uma senha</h3><div class="field"><label for="password">Senha para avaliar</label><input id="password" type="password" placeholder="Digite uma senha fictícia" autocomplete="off"></div><label class="checkline"><input type="checkbox" id="showPassword"> Mostrar o que digitei</label><button class="btn" id="checkPassword">Verificar senha</button><p class="hint">A análise acontece neste aparelho. A senha não é enviada nem salva por esta página.</p></div>
+<div class="card"><h3>Resultado da análise</h3><div class="result" aria-live="polite"><strong id="strengthTitle">Aguardando sua senha</strong><span id="strengthText" class="hint">Digite uma senha fictícia e selecione “Verificar senha”.</span><div class="meter"><span id="strengthMeter"></span></div><div class="criteria" id="criteria"><div class="criterion">Pelo menos 12 caracteres</div><div class="criterion">Letras minúsculas e maiúsculas</div><div class="criterion">Pelo menos um número</div><div class="criterion">Símbolo ou caractere especial</div><div class="criterion">Não usa palavras óbvias</div><div class="criterion">Evita sequências simples</div></div></div><p class="hint">Dica: prefira uma senha longa e única para cada conta. Um gerenciador de senhas pode ajudar.</p></div></div></section>
+
+<section id="mensagens"><div class="section-head"><div class="num">02</div><div><h2>Verificador de mensagens suspeitas</h2><p>Cole uma mensagem ou endereço de site para procurar sinais comuns de golpe. O resultado é uma orientação, não uma certeza.</p></div></div>
+<div class="grid"><div class="card"><div class="field"><label for="messageType">O que você quer analisar?</label><select id="messageType"><option value="message">Mensagem ou e-mail</option><option value="url">Endereço de site (URL)</option></select></div><div class="field"><label id="messageLabel" for="messageInput">Texto da mensagem</label><textarea id="messageInput" placeholder="Ex.: Sua conta será bloqueada hoje. Clique no link para confirmar seus dados..."></textarea></div><button class="btn" id="analyzeMessage">Analisar sinais</button><p class="hint">O texto fica no seu navegador; não cole senhas, documentos, códigos ou dados pessoais.</p></div>
+<div class="card"><h3>Resultado</h3><div class="result" aria-live="polite"><strong id="messageResult">Aguardando análise</strong><span id="messageScore" class="hint">Nenhum texto analisado ainda.</span><div id="messageReasons" style="margin-top:12px"></div></div><h3 style="margin-top:20px">Como agir</h3><p>Não clique nem pague enquanto estiver em dúvida. Abra o aplicativo ou site oficial por conta própria e confirme a informação por outro canal.</p></div></div>
+<div class="card" style="margin-top:18px"><h3>Como conferir um domínio</h3><p>Leia o endereço com calma e procure o domínio real, sem confiar apenas no nome de uma marca dentro do link.</p><p><span class="pill">Exemplo de atenção</span> <code>suporte-banco.exemplo.net</code> não é necessariamente o site oficial do banco só porque contém a palavra “banco”.</p><p class="hint">Desconfie de erros de escrita, nomes extras, encurtadores inesperados e pedidos de login ou pagamento recebidos por mensagem.</p></div></section>
+
+<section id="golpes"><div class="section-head"><div class="num">03</div><div><h2>Golpes comuns no dia a dia</h2><p>Conhecer as estratégias usadas em golpes ajuda você a parar, conferir e se proteger.</p></div></div>
+<div class="scam-grid">
+<article class="scam"><div class="emoji">👨‍👩‍👧</div><h3>Falso parente</h3><p>Alguém finge ser um familiar e pede dinheiro com urgência. Ligue para a pessoa usando um número que você já conhece antes de transferir.</p></article>
+<article class="scam"><div class="emoji">🏦</div><h3>Falsa central do banco</h3><p>Uma pessoa diz que há um problema na conta e pede senha ou código. Encerre o contato e procure o banco pelo aplicativo ou telefone oficial.</p></article>
+<article class="scam"><div class="emoji">💸</div><h3>PIX ou boleto falso</h3><p>Dados de pagamento são alterados para direcionar o dinheiro a outra pessoa. Confira o nome do recebedor e o valor antes de confirmar.</p></article>
+<article class="scam"><div class="emoji">📱</div><h3>Conta de WhatsApp invadida</h3><p>Alguém usa uma conta para pedir dinheiro aos contatos. Ative a confirmação em duas etapas e nunca compartilhe códigos de acesso.</p></article>
+<article class="scam"><div class="emoji">🎁</div><h3>Prêmio falso</h3><p>Uma mensagem promete um prêmio, mas pede pagamento, dados ou um clique. Desconfie de ofertas inesperadas e confira no canal oficial.</p></article>
+<article class="scam"><div class="emoji">🚚</div><h3>Entrega ou compra falsa</h3><p>Uma mensagem inventa uma taxa ou problema na entrega. Confira o pedido diretamente no aplicativo ou site oficial da loja ou transportadora.</p></article>
+</div></section>
+
+<section id="boas-praticas"><div class="section-head"><div class="num">04</div><div><h2>Boas práticas para se proteger</h2><p>Pequenos hábitos podem fazer uma grande diferença na sua segurança digital.</p></div></div>
+<div class="steps">
+<div class="step"><b>🔐 Ative duas etapas</b><p>Adicione uma segunda verificação às contas que oferecem esse recurso.</p></div>
+<div class="step"><b>🧊 Desconfie da urgência</b><p>Golpistas pressionam para você agir sem pensar. Pare e confirme antes de clicar.</p></div>
+<div class="step"><b>🔎 Confira o endereço</b><p>Confira o domínio e entre em sites importantes digitando o endereço ou usando o app oficial.</p></div>
+<div class="step"><b>🧩 Revise permissões</b><p>Veja quais aplicativos acessam sua câmera, microfone, localização e contatos.</p></div>
+<div class="step"><b>🔑 Use senhas únicas</b><p>Não reutilize a mesma senha em várias contas. Considere um gerenciador confiável.</p></div>
+<div class="step"><b>⬆️ Mantenha tudo atualizado</b><p>Atualizações corrigem falhas e ajudam a proteger o aparelho e os aplicativos.</p></div>
+</div></section>
+
+<section id="quiz"><div class="section-head"><div class="num">05</div><div><h2>Teste seus conhecimentos</h2><p>Responda a cinco perguntas rápidas para revisar o que aprendeu.</p></div></div>
+<div class="card"><div class="quiz-meta" id="quizMeta">Pergunta 1 de 5</div><div class="quiz-question" id="quizQuestion">O que fazer ao receber um pedido urgente de dinheiro de um familiar por mensagem?</div><div class="answers" id="quizAnswers"></div><div class="result" id="quizResult" hidden aria-live="polite"></div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn" id="nextQuestion" disabled>Próxima pergunta</button><button class="btn secondary" id="restartQuiz" hidden>Refazer quiz</button></div></div></section>
+
+<section id="feedback"><div class="section-head"><div class="num">06</div><div><h2>O que você achou deste material?</h2><p>Sua opinião ajuda a melhorar o conteúdo. O envio abaixo é demonstrativo: não transmite nem armazena suas respostas.</p></div></div>
+<div class="grid"><div class="card"><form id="feedbackForm"><div class="field"><label for="helpful">O quanto este material te ajudou?</label><select id="helpful" required><option value="">Escolha uma opção</option><option>Muito</option><option>Um pouco</option><option>Ainda tenho dúvidas</option></select></div><div class="field"><label for="recommend">Você indicaria este site para outra pessoa?</label><select id="recommend" required><option value="">Escolha uma opção</option><option>Sim</option><option>Talvez</option><option>Não</option></select></div><div class="field"><label for="improve">O que podemos melhorar? (opcional)</label><textarea id="improve" placeholder="Escreva sua sugestão..."></textarea></div><button class="btn" type="submit">Enviar feedback</button><p class="hint">Não inclua informações pessoais ou confidenciais.</p></form><div id="feedbackDone" class="result" hidden><strong>Obrigado pelo feedback!</strong><span class="hint">Esta demonstração não enviou nem guardou suas respostas.</span></div></div><div class="card"><h3>Ficou em dúvida?</h3><p>Converse com alguém de confiança e confirme informações usando canais oficiais. Se houver suspeita de fraude financeira, contate seu banco imediatamente pelos meios oficiais.</p><p class="hint">Este conteúdo é educativo e não substitui orientações específicas de bancos, plataformas ou autoridades.</p></div></div></section>
+</main>
+<footer><div class="wrap footer-inner"><div><div class="brand"><span class="brand-icon">✓</span><span>Uso Seguro da Tecnologia</span></div><p class="small">Projeto de extensão universitária · Universidade Metodista de São Paulo</p><p class="small">Material educativo sobre segurança e cidadania digital.</p></div><div><div class="small">Responsável pelo projeto</div><div class="credit">Fabio da Silva de Oliveira</div><div class="small" style="margin-top:8px">Conteúdo informativo · Não é um canal oficial da Universidade</div></div></div></footer>
+<script>
+const $=id=>document.getElementById(id);
+$("showPassword").addEventListener("change",()=>{$("password").type=$("showPassword").checked?"text":"password"});
+$("checkPassword").addEventListener("click",()=>{
+ const p=$("password").value; if(!p){$("strengthTitle").textContent="Digite uma senha fictícia";$("strengthText").textContent="Preencha o campo para começar.";return}
+ const tests=[
+  ["Pelo menos 12 caracteres",p.length>=12],
+  ["Letras minúsculas e maiúsculas",/[a-z]/.test(p)&&/[A-Z]/.test(p)],
+  ["Pelo menos um número",/\d/.test(p)],
+  ["Símbolo ou caractere especial",/[^A-Za-z0-9]/.test(p)],
+  ["Não usa palavras óbvias",!/(senha|password|qwerty|123456|admin)/i.test(p)],
+  ["Evita sequências simples",!/(0123|1234|2345|abcd|qwer|aaaa|1111)/i.test(p)]
+ ];
+ const score=tests.filter(t=>t[1]).length;
+ $("criteria").innerHTML=tests.map(t=>`<div class="criterion ${t[1]?"ok":""}">${t[0]}</div>`).join("");
+ $("strengthMeter").style.width=(score/6*100)+"%";
+ $("strengthTitle").textContent=score<=2?"Senha fraca":score<=4?"Senha razoável":"Senha mais forte";
+ $("strengthText").textContent=`Atendeu a ${score} de 6 critérios. Isso é uma estimativa educativa, não uma garantia de segurança.`;
+});
+$("messageType").addEventListener("change",()=>{const url=$("messageType").value==="url";$("messageLabel").textContent=url?"URL (link)":"Texto da mensagem";$("messageInput").placeholder=url?"Ex.: https://site-exemplo.net/login":"Cole aqui o texto da mensagem suspeita..."});
+$("analyzeMessage").addEventListener("click",()=>{
+ const input=$("messageInput").value.trim(),isUrl=$("messageType").value==="url";
+ if(!input){$("messageResult").textContent="Cole um texto para analisar";$("messageScore").textContent="O campo está vazio."; $("messageReasons").innerHTML="";return}
+ const checks=[
+  ["Cria urgência ou ameaça bloqueio",/urgente|imediat|bloquead|suspens|última chance|hoje mesmo|prazo acaba/i.test(input)],
+  ["Pede senha, código ou dados pessoais",/senha|código de confirma|token|dados pessoais|cpf|cartão|login/i.test(input)],
+  ["Promete prêmio ou benefício inesperado",/ganhou|prêmio|premio|sorteio|recompensa|benefício exclusivo/i.test(input)],
+  ["Pede pagamento ou taxa inesperada",/pix|taxa|pagamento|boleto|transferência|transferencia|depósito|deposito/i.test(input)],
+  ["Contém link ou endereço para clicar",/https?:\/\/|www\.|bit\.ly|tinyurl/i.test(input)],
+  ["Usa pressão emocional ou segredo",/não conte|nao conte|agora ou nunca|não desligue|nao desligue/i.test(input)]
+ ];
+ let score=checks.filter(c=>c[1]).length;
+ if(isUrl){
+  try{const u=new URL(input.includes("://")?input:"https://"+input);const host=u.hostname;const suspicious=/xn--|bit\.ly|tinyurl|t\.co|login.*(verify|secure)|secure.*login/i.test(host)||host.split(".").length>4;checks.push(["Endereço com sinais que merecem atenção",suspicious]);if(suspicious)score++;}
+  catch(e){checks.push(["O endereço não parece estar em formato válido",true]);score++;}
+ }
+ const level=score>=3?"Vários sinais de alerta":score>=1?"Alguns sinais para conferir":"Poucos sinais detectados";
+ $("messageResult").textContent=level;
+ $("messageScore").textContent=`${score} sinal(is) encontrado(s). A ferramenta pode errar e não confirma se é golpe.`;
+ $("messageReasons").innerHTML=checks.filter(c=>c[1]).map(c=>`<div class="criterion ok" style="color:var(--yellow);margin:7px 0">⚠ ${c[0]}</div>`).join("")||'<p class="hint">Nenhum dos sinais avaliados apareceu. Ainda assim, confira a origem por um canal oficial antes de agir.</p>';
+});
+const questions=[
+ {q:"Você recebe uma mensagem urgente de um familiar pedindo dinheiro. O que fazer?",a:["Transferir para ajudar logo","Confirmar por ligação usando um número conhecido","Pedir o código recebido por SMS"],correct:1,why:"Confirme por outro canal antes de enviar dinheiro."},
+ {q:"Qual é a melhor prática para senhas?",a:["Usar a mesma em todos os sites","Usar uma senha curta e fácil","Usar senhas longas e únicas para cada conta"],correct:2,why:"Senhas únicas reduzem o risco de uma conta comprometida afetar as outras."},
+ {q:"Uma pessoa que diz ser do banco pede seu código de confirmação. Você deve:",a:["Compartilhar para provar sua identidade","Não compartilhar e procurar o banco no canal oficial","Enviar só metade do código"],correct:1,why:"Não compartilhe senhas ou códigos. Entre em contato com o banco por um canal oficial."},
+ {q:"Como conferir uma cobrança de entrega recebida por SMS?",a:["Pagar pelo link da mensagem","Abrir o aplicativo ou site oficial por conta própria","Encaminhar para todos os contatos"],correct:1,why:"Verifique o pedido diretamente no canal oficial da loja ou transportadora."},
+ {q:"O que fazer quando uma mensagem diz que você ganhou um prêmio, mas precisa pagar uma taxa?",a:["Desconfiar e verificar a promoção em fonte oficial","Pagar rápido para não perder","Enviar seus dados bancários"],correct:0,why:"Promessas inesperadas com cobrança antecipada são um sinal de alerta."}
+];
+let qi=0,chosen=null,score=0;
+function renderQuestion(){chosen=null;$("quizResult").hidden=true;$("nextQuestion").disabled=true;$("nextQuestion").textContent=qi===questions.length-1?"Ver resultado":"Próxima pergunta";$("quizMeta").textContent=`Pergunta ${qi+1} de ${questions.length}`;$("quizQuestion").textContent=questions[qi].q;$("quizAnswers").innerHTML="";questions[qi].a.forEach((answer,i)=>{const b=document.createElement("button");b.className="answer";b.textContent=answer;b.addEventListener("click",()=>{if(chosen!==null)return;chosen=i;document.querySelectorAll(".answer").forEach(x=>x.disabled=true);b.classList.add("selected");if(i===questions[qi].correct)score++;$("quizResult").hidden=false;$("quizResult").innerHTML=`<strong>${i===questions[qi].correct?"Isso aí!":"Quase!"}</strong><span class="hint">${questions[qi].why}</span>`;$("nextQuestion").disabled=false});$("quizAnswers").appendChild(b)});$("restartQuiz").hidden=true}
+$("nextQuestion").addEventListener("click",()=>{if(chosen===null)return;if(qi<questions.length-1){qi++;renderQuestion()}else{$("quizMeta").textContent="Quiz concluído";$("quizQuestion").textContent=`Você acertou ${score} de ${questions.length} perguntas.`;$("quizAnswers").innerHTML="<p class='hint'>Continue praticando: pare, confira e só então clique ou pague.</p>";$("quizResult").hidden=true;$("nextQuestion").hidden=true;$("restartQuiz").hidden=false}});
+$("restartQuiz").addEventListener("click",()=>{qi=0;score=0;$("nextQuestion").hidden=false;renderQuestion()});renderQuestion();
+$("feedbackForm").addEventListener("submit",e=>{e.preventDefault();$("feedbackForm").hidden=true;$("feedbackDone").hidden=false});
+</script>
+</body>
+</html>
