@@ -888,7 +888,7 @@
             $("messageResult").textContent = level;
             $("messageScore").textContent = `${score} sinal(is) encontrado(s). A ferramenta pode errar e não confirma se é golpe.`;
             $("messageReasons").innerHTML = checks.filter(c => c[1]).map(c => `<div class="criterion ok" style="color:var(--yellow);margin:7px 0">⚠ ${c[0]}</div>`).join("") || '<p class="hint">Nenhum dos sinais avaliados apareceu. Ainda assim, confira a origem por um canal oficial antes de agir.</p>';
-        });
+        });const API_URL = "https://FABIOOLIVEIRA20.pythonanywhere.com";
         const questions = [
             { q: "Você recebe uma mensagem urgente de um familiar pedindo dinheiro. O que fazer?", a: ["Transferir para ajudar logo", "Confirmar por ligação usando um número conhecido", "Pedir o código recebido por SMS"], correct: 1, why: "Confirme por outro canal antes de enviar dinheiro." },
             { q: "Qual é a melhor prática para senhas?", a: ["Usar a mesma em todos os sites", "Usar uma senha curta e fácil", "Usar senhas longas e únicas para cada conta"], correct: 2, why: "Senhas únicas reduzem o risco de uma conta comprometida afetar as outras." },
